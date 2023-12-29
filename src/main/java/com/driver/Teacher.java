@@ -14,7 +14,7 @@ public class Teacher {
 
     public Teacher(String name, int numberOfStudents, int age) {
         this.name = name;
-        this.numberOfStudents = 0;
+        this.numberOfStudents = numberOfStudents;
         this.age = age;
     }
 
