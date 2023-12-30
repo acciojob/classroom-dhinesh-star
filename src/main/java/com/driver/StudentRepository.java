@@ -60,9 +60,17 @@ public class StudentRepository {
         return "Deleted Successfully";
     }
     public String deleteAllTeachers(){
+
+        for(String directorName:teacherDB.keySet()){
+            List<String> studList = studTeacherDB.getOrDefault(directorName,new ArrayList<>());
+            for(String movieName:studList){
+                studDB.remove(movieName);
+            }
+        }
+
         teacherDB.clear();
         studTeacherDB.clear();
-        studDB.clear();
+
         return "All Deleted Successfully";
     }
 }
