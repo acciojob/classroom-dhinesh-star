@@ -21,12 +21,10 @@ public class StudentRepository {
     }
     public String addStudentTeacherPair(String student, String teacher){
         List<String> studList = studTeacherDB.getOrDefault(teacher,new ArrayList<>());
-        if(studList.contains(student)==false){
-            studList.add(student);
-            studTeacherDB.put(teacher,studList);
-            Teacher teacherObj = teacherDB.get(teacher);
-            teacherObj.setNumberOfStudents(studList.size());
-        }
+        studList.add(student);
+        studTeacherDB.put(teacher,studList);
+        Teacher teacherObj = teacherDB.get(teacher);
+        teacherObj.setNumberOfStudents(studList.size());
         return "Teacher-student pair added successfully";
     }
     public Student getStudentByName(String name){
